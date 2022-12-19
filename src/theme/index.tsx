@@ -7,6 +7,9 @@ export const tokens = (mode: string) => ({
 				primary: {
 					DEFAULT: '#000000',
 					100: '#000000',
+					200: '#000000',
+					300: '#000000',
+					400: '#000000',
 					500: '#0F0E0E',
 					600: '#232323',
 					700: '#3D3D3D',
@@ -19,6 +22,9 @@ export const tokens = (mode: string) => ({
 				black: {
 					DEFAULT: '#000000',
 					100: '#000000',
+					200: '#000000',
+					300: '#000000',
+					400: '#000000',
 					500: '#0F0E0E',
 					600: '#292929',
 					700: '#3D3D3D',
@@ -53,6 +59,10 @@ export const tokens = (mode: string) => ({
 					200: '#3D3D3D',
 					300: '#292929',
 					400: '#141414',
+					500: '#000000',
+					600: '#000000',
+					700: '#000000',
+					800: '#000000',
 					900: '#000000',
 				},
 				gray: {
@@ -99,22 +109,18 @@ export const themeSettings: any = (mode: string) => {
 			h1: {
 				fontFamily: ['Poppins', 'sans-serif'].join(','),
 				fontSize: 28,
-				fontWEight: 700,
 			},
 			h2: {
 				fontFamily: ['Poppins', 'sans-serif'].join(','),
 				fontSize: 20,
-				fontWEight: 600,
 			},
 			h3: {
 				fontFamily: ['Poppins', 'sans-serif'].join(','),
 				fontSize: 18,
-				fontWEight: 700,
 			},
 			p: {
 				fontFamily: ['Poppins', 'sans-serif'].join(','),
 				fontSize: 14,
-				fontWEight: 500,
 			},
 		},
 	}
@@ -126,7 +132,6 @@ export const ColorModeContext: any = createContext({
 
 export const useMode = () => {
 	const [mode, setMode] = useState('dark')
-	console.log(mode)
 
 	const colorMode = useMemo(
 		() => ({

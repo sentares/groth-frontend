@@ -1,9 +1,8 @@
 import { Box, Grid, IconButton, InputBase, useTheme } from '@mui/material'
 import { FC, useContext } from 'react'
-import { useAppSelector } from '../../utils/hooks'
 import DarkModeIcon from '@mui/icons-material/DarkMode'
 import LightModeIcon from '@mui/icons-material/LightMode'
-import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined'
+import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone'
 import SearchIcon from '@mui/icons-material/Search'
 import { ColorModeContext, tokens, useMode } from '../../theme'
 
@@ -11,7 +10,6 @@ export const TopBarComponent: FC = (): JSX.Element => {
 	const theme = useTheme()
 	const colors = tokens(theme.palette.mode)
 	const colorMode: any = useContext(ColorModeContext)
-	console.log(colors)
 
 	return (
 		<Box
@@ -21,12 +19,13 @@ export const TopBarComponent: FC = (): JSX.Element => {
 			px='32px'
 			py='24px'
 		>
-			<Box>
-				<Grid>Welcome, John</Grid>
-			</Box>
-			<Box display='flex'>
-				<Grid sx={{ pr: '28px', borderRight: '1px solid #D1D1D1' }}>
-					<IconButton onClick={colorMode.toggleColorMode} sx={{ mr: '29px' }}>
+			<Grid>Welcome Alex</Grid>
+			<Box display='flex' alignItems='center'>
+				<Grid
+					onClick={colorMode.toggleColorMode}
+					sx={{ pr: '25px', borderRight: `1px solid ${colors.gray.DEFAULT}` }}
+				>
+					<IconButton sx={{ mr: '10px' }}>
 						{theme.palette.mode === 'dark' ? (
 							<DarkModeIcon />
 						) : (
@@ -34,25 +33,28 @@ export const TopBarComponent: FC = (): JSX.Element => {
 						)}
 					</IconButton>
 					<IconButton>
-						<NotificationsNoneOutlinedIcon />
+						<NotificationsNoneIcon />
 					</IconButton>
 				</Grid>
 				<Grid
 					sx={{
-						width: '390px',
 						display: 'flex',
-						backgroundColor: 'transparent',
+						justifyContent: 'center',
+						alignItems: 'center',
+						backgroundColor: `${colors.gray.DEFAULT}`,
 						borderRadius: '8px',
-						ml: '28px',
-						px: '14px',
-						pl: '0px',
-						py: '8px',
+						ml: '10px',
+						height: '20px',
+						py: '20px',
 					}}
 				>
 					<IconButton>
 						<SearchIcon />
 					</IconButton>
-					<InputBase sx={{}} placeholder='Поиск' />
+					<InputBase
+						sx={{ px: '10px', py: '12px', width: '320px' }}
+						placeholder='Поиск'
+					/>
 				</Grid>
 			</Box>
 		</Box>
